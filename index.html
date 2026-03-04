@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- IMPORTANT FOR PHONES -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For You ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: pop 0.8s ease;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 28px;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .heart {
+      font-size: 42px;
+      animation: beat 1s infinite;
+      margin: 10px 0;
+    }
+
+    .hint {
+      font-size: 15px;
+      color: #ff7a90;
+    }
+
+    button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 18px;
+      border-radius: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    #popup {
+      display: none;
+      margin-top: 18px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    #popup img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Hey you 🥺</h1>
+    <p>Just wanted to say</p>
+    <h1>Thank You 💕</h1>
+    <p>for being you.</p>
+
+    <p class="heart">❤️</p>
+    <p>I love you.</p>
+
+    <button onclick="love()">Tap for love ❤️</button>
+    <p>Love level: <span id="count">0</span></p>
+    <p class="hint">👀 press till 100</p>
+
+    <div id="popup">
+      <h2 style="color:#ff4d6d;">100!!! 🥹❤️</h2>
+      <p>You unlocked infinite love ♾️</p>
+      <p>I choose you. Always.</p>
+
+      <img src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif" alt="cute hearts">
+    </div>
+  </div>
+
+  <script>
+    let c = 0;
+    let unlocked = false;
+
+    function love() {
+      c++;
+      document.getElementById("count").innerText = c;
+
+      if (c === 100 && !unlocked) {
+        document.getElementById("popup").style.display = "block";
+        unlocked = true;
+      }
+    }
+  </script>
+</body>
+</html>
